@@ -7,7 +7,7 @@ namespace AdventOfCode
 {
 	class Utils
 	{
-		private static IEnumerable<string> ReadFileLines(string filename)
+		public static IEnumerable<string> GetLinesFromFile(string filename)
 		{
 			string line;
 			using (var reader = File.OpenText(filename))
@@ -19,9 +19,14 @@ namespace AdventOfCode
 			}
 		}
 
-		public static List<String> GetLinesFromFile(string filename)
+		public static IEnumerable<string> GetLinesForDay(int number)
 		{
-			return new List<string>(ReadFileLines(filename));
+			return GetLinesFromFile("input/Day" + number +"Input.txt");
+		}
+
+		public static string RemoveLastChar(string input)
+		{
+			return input.Substring(0, input.Count() - 1);
 		}
 	}
 }
