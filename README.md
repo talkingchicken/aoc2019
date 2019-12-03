@@ -1,2 +1,2 @@
-# aoc2018
-Advent of Code 2018 solutions
+# aoc2019
+Advent of Code 2019 solutions
