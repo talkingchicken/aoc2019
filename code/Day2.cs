@@ -18,37 +18,9 @@ namespace AdventOfCode
 			inputList[1] = 12;
 			inputList[2] = 2;
 
-			RunProgram(inputList);
+			IntCode.RunProgram(inputList);
 
 			Console.WriteLine((inputList[0]));
-		}
-
-		private static void RunProgram(List<int> program)
-		{
-			int currentPosition = 0;
-
-			while (true)
-			{
-				switch(program[currentPosition])
-				{
-					case 1:
-						program[program[currentPosition + 3]] = program[program[currentPosition + 1]] + program[program[currentPosition + 2]];
-						currentPosition += 4;
-						break;
-						
-					case 2:
-						program[program[currentPosition + 3]] = program[program[currentPosition + 1]] * program[program[currentPosition + 2]];
-						currentPosition += 4;
-						break;
-
-					case 99:
-						return;
-
-					default:
-						throw new Exception("Error: unknown opcode");
-				}
-			}
-			
 		}
 
 		public static void PartTwo()
@@ -69,7 +41,7 @@ namespace AdventOfCode
 					inputList[1] = i;
 					inputList[2] = j;
 
-					RunProgram(inputList);
+					IntCode.RunProgram(inputList);
 
 					if (inputList[0] == inputCheck)
 					{
